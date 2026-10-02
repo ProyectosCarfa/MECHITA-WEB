@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<!-- ============================================================
+     TOPBAR NEGRA
+     ============================================================ -->
+<div th:fragment="topbar" class="topbar-mechita">
+  <div class="topbar-inner">
+
+    <div class="topbar-left">
+      <span><i class="bi bi-geo-alt-fill"></i> Piura, Perú</span>
+      <span class="topbar-divider">|</span>
+      <span><i class="bi bi-truck"></i> Envíos a todo el Perú</span>
+    </div>
+
+    <div class="topbar-right">
+      <span>Síguenos:</span>
+      <div class="topbar-social">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+      </div>
+      <span class="topbar-divider">|</span>
+      <a th:href="@{/login}" style="color: rgba(255,255,255,0.85); text-decoration: none;">
+        <i class="bi bi-person"></i> Iniciar sesión / Registrarse
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav th:fragment="navbar" id="mainNavbar" class="navbar navbar-expand-lg navbar-mechita">
+  <div class="container navbar-container">
+
+    <!-- LOGO -->
+    <a class="navbar-brand" th:href="@{/}">
+      <img th:src="@{/assets/img/logo.png}"
+           alt="Productos Piuranos Mechita"
+           class="logo-img">
+      <div class="brand-info">
+        <span class="brand-line-1">Productos Piuranos</span>
+        <span class="brand-line-2">MECHITA E.I.R.L</span>
+        <span class="brand-line-3">Tradición que se comparte</span>
+      </div>
+    </a>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="navbar-toggler ms-auto" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- MENÚ COLAPSABLE -->
+    <div class="collapse navbar-collapse" id="navMenu">
+
+      <ul class="navbar-nav navbar-nav-main">
+        <li class="nav-item"><a class="nav-link nav-link-mechita active" th:href="@{/}">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-mechita" th:href="@{/productos}">Productos</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-mechita" th:href="@{/categorias}">Categorías</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-mechita" th:href="@{/nosotros}">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-mechita" th:href="@{/contacto}">Contacto</a></li>
+      </ul>
+
+      <!-- BUSCADOR -->
+      <form class="navbar-search" role="search" th:action="@{/productos}" method="get">
+        <input type="search" name="q" placeholder="Buscar productos..." aria-label="Buscar">
+        <button type="submit" aria-label="Buscar">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+      <!-- CARRITO -->
+      <a class="cart-icon" th:href="@{/carrito}" aria-label="Carrito">
+        <i class="bi bi-cart3"></i>
+        <span class="badge-carrito">0</span>
+      </a>
+
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>
